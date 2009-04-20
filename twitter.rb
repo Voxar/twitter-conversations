@@ -7,13 +7,20 @@ args = $*
 
 username = nil
 password = nil
+do_status = nil #set to status id if you want to follow a specific conversation
 
-unless args.length >= 2
+
+if args.length == 2
+  username, password = args
+elsif args.length == 1
+  do_status = args.first
+else
   puts "Usage: #{File.basename(__FILE__)} username password"
+  puts "  to follow conversations your friends are in"
+  puts "OR #{File.basename(__FILE__)} status_id"
+  puts "  to follow specific conversation (from status_id and up)"
   exit
 end
-
-username, password = args
 
 DEBUG = false
 AUTH = {:http_basic_authentication=>[username, password]}
@@ -62,13 +69,12 @@ def get_thread(post)
   thread.reverse
 end
 
-def format(post)
-  "#{post["user"]["name"]}\n  #{post["text"]}"
+if do_status
+  data = [get_status(do_status)]
+else
+  #always want new version of timeline, so skip cache
+  data = _get("http://twitter.com/statuses/friends_timeline.json", true)
 end
-
-#always want new version of timeline, so skip cache
-data = _get("http://twitter.com/statuses/friends_timeline.json", true)
-
 #map posts as threads
 threads = data.map { |post| get_thread(post) }
 #sort out thread copies

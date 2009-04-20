@@ -2,8 +2,11 @@ What?
 New go at reading twitter in a more conversation like style
 
 How?
-* Download twitter.rb
-* ruby twitter.rb username password
+Download twitter.rb
+Usage: twitter.rb username password
+  to follow conversations your friends are in
+OR: twitter.rb status_id
+  to follow specific conversation (from status_id and up)
 
 Why? 
 It's near impossible to follow conversations on twitter
