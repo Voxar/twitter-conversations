@@ -19,10 +19,15 @@ elsif args.length == 1
     do_user = args.first
   end
 else
-  puts "Usage: #{File.basename(__FILE__)} username password"
+  puts "Usage: ruby #{File.basename(__FILE__)} username password"
   puts "  to follow conversations your friends are in"
-  puts "OR #{File.basename(__FILE__)} status_id"
+  puts "  example: ruby twitter.rb <secret> <secret>"
+  puts "OR: ruby #{File.basename(__FILE__)} status_id"
   puts "  to follow specific conversation (from status_id and up)"
+  puts "  example: ruby twitter.rb 1564420484"
+  puts "OR: ruby #{File.basename(__FILE__)} username"
+  puts "  to follow conversations that user is in"
+  puts "  example: ruby twitter.rb voxar"
   exit
 end
 
