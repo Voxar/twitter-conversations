@@ -27,7 +27,7 @@ end
 def cache(url, use_auth)
   Dir.mkdir("cache") if not File.exists?('cache')
   filename = "cache/#{url.hash.to_s}"
-  check_if_old(filename) if File.exist?(filename)
+#  check_if_old(filename) if File.exist?(filename) #no need. statuses rarely change and timeline skips cache...
   if File.exist?(filename)
     Marshal.load(open(filename).read)
   else
