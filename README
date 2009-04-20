@@ -1,0 +1,10 @@
+What? 
+New go at reading twitter in a more conversation like style
+
+How?
+Download twitter.rb and run
+
+ruby twitter.rb username password
+
+Why? 
+It's near impossible to follow conversations on twitter
