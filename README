@@ -5,8 +5,13 @@ How?
 Download twitter.rb
 Usage: twitter.rb username password
   to follow conversations your friends are in
+  example: ruby twitter.rb <secret> <secret>
 OR: twitter.rb status_id
   to follow specific conversation (from status_id and up)
+  example: ruby twitter.rb 1564420484
+OR: twitter.rb username
+  to follow conversations that user is in
+  example: ruby twitter.rb voxar
 
 Why? 
 It's near impossible to follow conversations on twitter
