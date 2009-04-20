@@ -8,3 +8,8 @@ ruby twitter.rb username password
 
 Why? 
 It's near impossible to follow conversations on twitter
+
+What u need?
+require 'rubygems' # the required requirement......
+require 'open-uri' # built in? cant remember...
+require 'JSON'     # sudo gem install json
