@@ -8,12 +8,16 @@ args = $*
 username = nil
 password = nil
 do_status = nil #set to status id if you want to follow a specific conversation
-
+do_user = nil   #to get conversations that a specific user is in
 
 if args.length == 2
   username, password = args
 elsif args.length == 1
-  do_status = args.first
+  if args.first =~ /\d+/
+    do_status = args.first 
+  else
+    do_user = args.first
+  end
 else
   puts "Usage: #{File.basename(__FILE__)} username password"
   puts "  to follow conversations your friends are in"
@@ -71,6 +75,8 @@ end
 
 if do_status
   data = [get_status(do_status)]
+elsif do_user
+  data = _get("http://twitter.com/statuses/user_timeline.json?screen_name=#{do_user}")
 else
   #always want new version of timeline, so skip cache
   data = _get("http://twitter.com/statuses/friends_timeline.json", true)
