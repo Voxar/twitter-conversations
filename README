@@ -2,9 +2,8 @@ What?
 New go at reading twitter in a more conversation like style
 
 How?
-Download twitter.rb and run
-
-ruby twitter.rb username password
+* Download twitter.rb
+* ruby twitter.rb username password
 
 Why? 
 It's near impossible to follow conversations on twitter
@@ -13,3 +12,9 @@ What u need?
 require 'rubygems' # the required requirement......
 require 'open-uri' # built in? cant remember...
 require 'JSON'     # sudo gem install json
+
+Notes!
+Uses twitters rest API which has a per-ip limit of 100 requests per hour (shared with other twitter apps on your computer!). 
+To not use too many of your precious a directory called 'cache' will be created where the script is.
+If there are many long conversations the number of requests can be high on the first run.
+If you get exception with code 400 you have hit the limit.
